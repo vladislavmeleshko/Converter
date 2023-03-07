@@ -672,7 +672,7 @@ namespace Converter.classes
 
         private string corrNameField;
 
-        private uint unpField;
+        private string unpField;
 
         private string corrAccountField;
 
@@ -834,7 +834,7 @@ namespace Converter.classes
         }
 
         /// <remarks/>
-        public uint unp
+        public string unp
         {
             get
             {
