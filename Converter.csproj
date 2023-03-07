@@ -48,6 +48,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="classes\descBalance.cs" />
+    <Compile Include="classes\descBalanceEntry.cs" />
+    <Compile Include="classes\descBalanceExtractList.cs" />
+    <Compile Include="classes\descBalanceExtractListEntry.cs" />
+    <Compile Include="classes\descBalanceExtractListTurns.cs" />
     <Compile Include="classes\ExcelToObject.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
