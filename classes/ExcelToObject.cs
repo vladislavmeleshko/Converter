@@ -36,6 +36,7 @@ namespace Converter.classes
                 descBalanceObj.dateFrom = Convert.ToString(sheet.Cells[3, 4].Value.ToString().Split(' ')[1]);
                 descBalanceObj.dateTo = Convert.ToString(sheet.Cells[3, 4].Value.ToString().Split(' ')[3]);
                 descBalanceObj.extractList = new descBalanceExtractList();
+                descBalanceObj.extractList.dateTime = Convert.ToDateTime(sheet.Cells[4, 4].Value.ToString().Replace(",", " ").Split(' ')[0] + " " + sheet.Cells[4, 4].Value.ToString().Split(' ')[1].Replace(".", ":"));
                 descBalanceObj.extractList.openingBalance = Convert.ToDecimal(sheet.Cells[6, 4].Value.ToString().Replace("BYN", "").Replace(" ", "").Replace(".", ","));
                 descBalanceObj.extractList.openingBalanceNat = Convert.ToDecimal(sheet.Cells[6, 4].Value.ToString().Replace("BYN", "").Replace(" ", "").Replace(".", ","));
                 descBalanceObj.extractList.tDbAmount = Convert.ToDecimal(sheet.Cells[7, 4].Value.ToString().Replace("BYN", "").Replace(" ", "").Replace(".", ","));
@@ -44,6 +45,8 @@ namespace Converter.classes
                 descBalanceObj.extractList.tCrAmountNat = Convert.ToDecimal(sheet.Cells[8, 4].Value.ToString().Replace("BYN", "").Replace(" ", "").Replace(".", ","));
                 descBalanceObj.extractList.closingBalance = Convert.ToDecimal(sheet.Cells[9, 4].Value.ToString().Replace("BYN", "").Replace(" ", "").Replace(".", ","));
                 descBalanceObj.extractList.closingBalanceNat = Convert.ToDecimal(sheet.Cells[9, 4].Value.ToString().Replace("BYN", "").Replace(" ", "").Replace(".", ","));
+                descBalanceObj.extractList.openingBalanceDate = Convert.ToDateTime(sheet.Cells[3, 4].Value.ToString().Split(' ')[1]);
+                descBalanceObj.extractList.closingBalanceDate = Convert.ToDateTime(sheet.Cells[3, 4].Value.ToString().Split(' ')[3]);
 
                 descBalanceObj.extractList.turns = new List<descBalanceExtractListTurns>();
                 int row = 12;
