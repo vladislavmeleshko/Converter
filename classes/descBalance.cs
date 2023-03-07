@@ -20,19 +20,19 @@ namespace Converter.classes
 
         private string accountField;
 
-        private string rubValField;
+        private byte rubValField;
 
-        private string currCodeField;
+        private ushort currCodeField;
 
         private string dateFromField;
 
         private string dateToField;
 
-        private string isErrorField;
+        private byte isErrorField;
 
-        private ExtractList extractListField;
+        private descBalanceExtractList extractListField;
 
-        private List<Entry> additionalParamsField;
+        private descBalanceEntry[] additionalParamsField;
 
         /// <remarks/>
         public string accTitle
@@ -61,7 +61,7 @@ namespace Converter.classes
         }
 
         /// <remarks/>
-        public string rubVal
+        public byte rubVal
         {
             get
             {
@@ -74,7 +74,7 @@ namespace Converter.classes
         }
 
         /// <remarks/>
-        public string currCode
+        public ushort currCode
         {
             get
             {
@@ -113,7 +113,7 @@ namespace Converter.classes
         }
 
         /// <remarks/>
-        public string isError
+        public byte isError
         {
             get
             {
@@ -126,7 +126,7 @@ namespace Converter.classes
         }
 
         /// <remarks/>
-        public ExtractList extractList
+        public descBalanceExtractList extractList
         {
             get
             {
@@ -140,7 +140,7 @@ namespace Converter.classes
 
         /// <remarks/>
         [System.Xml.Serialization.XmlArrayItemAttribute("entry", IsNullable = false)]
-        public List<Entry> additionalParams
+        public descBalanceEntry[] additionalParams
         {
             get
             {
@@ -157,28 +157,28 @@ namespace Converter.classes
     [System.SerializableAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
-    public partial class ExtractList
+    public partial class descBalanceExtractList
     {
 
-        private string openingBalanceField;
+        private decimal openingBalanceField;
 
-        private string openingBalanceNatField;
+        private decimal openingBalanceNatField;
 
-        private string isOpeningBalanceDebitField;
+        private byte isOpeningBalanceDebitField;
 
-        private string closingBalanceField;
+        private decimal closingBalanceField;
 
-        private string closingBalanceNatField;
+        private decimal closingBalanceNatField;
 
-        private string isClosingBalanceDebitField;
+        private byte isClosingBalanceDebitField;
 
-        private string tDbAmountField;
+        private decimal tDbAmountField;
 
-        private string tDbAmountNatField;
+        private decimal tDbAmountNatField;
 
-        private string tCrAmountField;
+        private decimal tCrAmountField;
 
-        private string tCrAmountNatField;
+        private decimal tCrAmountNatField;
 
         private string header1Field;
 
@@ -190,7 +190,7 @@ namespace Converter.classes
 
         private string header5Field;
 
-        private string header6Field;
+        private object header6Field;
 
         private System.DateTime dateTimeField;
 
@@ -198,25 +198,25 @@ namespace Converter.classes
 
         private System.DateTime closingBalanceDateField;
 
-        private string accountTypeField;
+        private byte accountTypeField;
 
         private string isoField;
 
-        private string currCodeField;
+        private ushort currCodeField;
 
-        private string officerCodeField;
+        private ushort officerCodeField;
 
-        private string officerNameField;
+        private ushort officerNameField;
 
         private string answerField;
 
-        private List<Turns> turnsField;
+        private List<descBalanceExtractListTurns> turnsField;
 
-        private List<Entry> additionalParamsField;
+        private List<descBalanceExtractListEntry> additionalParamsField;
 
-        private string isErrorField;
+        private byte isErrorField;
 
-        private string unpField;
+        private uint unpField;
 
         private string clientNameField;
 
@@ -225,7 +225,7 @@ namespace Converter.classes
         private string bankNameField;
 
         /// <remarks/>
-        public string openingBalance
+        public decimal openingBalance
         {
             get
             {
@@ -238,7 +238,7 @@ namespace Converter.classes
         }
 
         /// <remarks/>
-        public string openingBalanceNat
+        public decimal openingBalanceNat
         {
             get
             {
@@ -251,7 +251,7 @@ namespace Converter.classes
         }
 
         /// <remarks/>
-        public string isOpeningBalanceDebit
+        public byte isOpeningBalanceDebit
         {
             get
             {
@@ -264,7 +264,7 @@ namespace Converter.classes
         }
 
         /// <remarks/>
-        public string closingBalance
+        public decimal closingBalance
         {
             get
             {
@@ -277,7 +277,7 @@ namespace Converter.classes
         }
 
         /// <remarks/>
-        public string closingBalanceNat
+        public decimal closingBalanceNat
         {
             get
             {
@@ -290,7 +290,7 @@ namespace Converter.classes
         }
 
         /// <remarks/>
-        public string isClosingBalanceDebit
+        public byte isClosingBalanceDebit
         {
             get
             {
@@ -303,7 +303,7 @@ namespace Converter.classes
         }
 
         /// <remarks/>
-        public string tDbAmount
+        public decimal tDbAmount
         {
             get
             {
@@ -316,7 +316,7 @@ namespace Converter.classes
         }
 
         /// <remarks/>
-        public string tDbAmountNat
+        public decimal tDbAmountNat
         {
             get
             {
@@ -329,7 +329,7 @@ namespace Converter.classes
         }
 
         /// <remarks/>
-        public string tCrAmount
+        public decimal tCrAmount
         {
             get
             {
@@ -342,7 +342,7 @@ namespace Converter.classes
         }
 
         /// <remarks/>
-        public string tCrAmountNat
+        public decimal tCrAmountNat
         {
             get
             {
@@ -420,7 +420,7 @@ namespace Converter.classes
         }
 
         /// <remarks/>
-        public string header6
+        public object header6
         {
             get
             {
@@ -472,7 +472,7 @@ namespace Converter.classes
         }
 
         /// <remarks/>
-        public string accountType
+        public byte accountType
         {
             get
             {
@@ -498,7 +498,7 @@ namespace Converter.classes
         }
 
         /// <remarks/>
-        public string currCode
+        public ushort currCode
         {
             get
             {
@@ -511,7 +511,7 @@ namespace Converter.classes
         }
 
         /// <remarks/>
-        public string officerCode
+        public ushort officerCode
         {
             get
             {
@@ -524,7 +524,7 @@ namespace Converter.classes
         }
 
         /// <remarks/>
-        public string officerName
+        public ushort officerName
         {
             get
             {
@@ -550,7 +550,8 @@ namespace Converter.classes
         }
 
         /// <remarks/>
-        public List<Turns> turns
+        [System.Xml.Serialization.XmlElementAttribute("turns")]
+        public List<descBalanceExtractListTurns> turns
         {
             get
             {
@@ -564,7 +565,7 @@ namespace Converter.classes
 
         /// <remarks/>
         [System.Xml.Serialization.XmlArrayItemAttribute("entry", IsNullable = false)]
-        public List<Entry> additionalParams
+        public List<descBalanceExtractListEntry> additionalParams
         {
             get
             {
@@ -577,7 +578,7 @@ namespace Converter.classes
         }
 
         /// <remarks/>
-        public string isError
+        public byte isError
         {
             get
             {
@@ -590,7 +591,7 @@ namespace Converter.classes
         }
 
         /// <remarks/>
-        public string unp
+        public uint unp
         {
             get
             {
@@ -646,16 +647,16 @@ namespace Converter.classes
     [System.SerializableAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
-    public partial class Turns
+    public partial class descBalanceExtractListTurns
     {
 
-        private string dbAmountField;
+        private decimal dbAmountField;
 
-        private string dbAmountNatField;
+        private decimal dbAmountNatField;
 
-        private string crAmountField;
+        private decimal crAmountField;
 
-        private string crAmountNatField;
+        private decimal crAmountNatField;
 
         private System.DateTime docDateField;
 
@@ -663,15 +664,15 @@ namespace Converter.classes
 
         private string docIdField;
 
-        private string oprField;
+        private byte oprField;
 
         private string naznTextField;
 
-        private string naznTextInvField;
+        private object naznTextInvField;
 
         private string corrNameField;
 
-        private string unpField;
+        private uint unpField;
 
         private string corrAccountField;
 
@@ -679,18 +680,18 @@ namespace Converter.classes
 
         private string corrBankNameField;
 
-        private string payerField;
+        private object payerField;
 
-        private string beneficiarField;
+        private object beneficiarField;
 
-        private string docTypeField;
+        private byte docTypeField;
 
-        private string docStsField;
+        private object docStsField;
 
-        private string addParamsField;
+        private object addParamsField;
 
         /// <remarks/>
-        public string dbAmount
+        public decimal dbAmount
         {
             get
             {
@@ -703,7 +704,7 @@ namespace Converter.classes
         }
 
         /// <remarks/>
-        public string dbAmountNat
+        public decimal dbAmountNat
         {
             get
             {
@@ -716,7 +717,7 @@ namespace Converter.classes
         }
 
         /// <remarks/>
-        public string crAmount
+        public decimal crAmount
         {
             get
             {
@@ -729,7 +730,7 @@ namespace Converter.classes
         }
 
         /// <remarks/>
-        public string crAmountNat
+        public decimal crAmountNat
         {
             get
             {
@@ -781,7 +782,7 @@ namespace Converter.classes
         }
 
         /// <remarks/>
-        public string opr
+        public byte opr
         {
             get
             {
@@ -807,7 +808,7 @@ namespace Converter.classes
         }
 
         /// <remarks/>
-        public string naznTextInv
+        public object naznTextInv
         {
             get
             {
@@ -833,7 +834,7 @@ namespace Converter.classes
         }
 
         /// <remarks/>
-        public string unp
+        public uint unp
         {
             get
             {
@@ -885,7 +886,7 @@ namespace Converter.classes
         }
 
         /// <remarks/>
-        public string payer
+        public object payer
         {
             get
             {
@@ -898,7 +899,7 @@ namespace Converter.classes
         }
 
         /// <remarks/>
-        public string beneficiar
+        public object beneficiar
         {
             get
             {
@@ -911,7 +912,7 @@ namespace Converter.classes
         }
 
         /// <remarks/>
-        public string docType
+        public byte docType
         {
             get
             {
@@ -924,7 +925,7 @@ namespace Converter.classes
         }
 
         /// <remarks/>
-        public string docSts
+        public object docSts
         {
             get
             {
@@ -937,7 +938,7 @@ namespace Converter.classes
         }
 
         /// <remarks/>
-        public string addParams
+        public object addParams
         {
             get
             {
@@ -954,7 +955,7 @@ namespace Converter.classes
     [System.SerializableAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
-    public partial class Entry
+    public partial class descBalanceExtractListEntry
     {
 
         private string keyField;
@@ -987,4 +988,44 @@ namespace Converter.classes
             }
         }
     }
+
+    /// <remarks/>
+    [System.SerializableAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+    public partial class descBalanceEntry
+    {
+
+        private string keyField;
+
+        private string valueField;
+
+        /// <remarks/>
+        public string key
+        {
+            get
+            {
+                return this.keyField;
+            }
+            set
+            {
+                this.keyField = value;
+            }
+        }
+
+        /// <remarks/>
+        public string value
+        {
+            get
+            {
+                return this.valueField;
+            }
+            set
+            {
+                this.valueField = value;
+            }
+        }
+    }
+
+
 }
