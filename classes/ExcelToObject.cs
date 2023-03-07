@@ -58,6 +58,7 @@ namespace Converter.classes
                     turn.corrBankCode = Convert.ToString(sheet.Cells[row, 10].Value);
                     turn.naznText = Convert.ToString(sheet.Cells[row, 11].Value);
                     turn.crAmount = Convert.ToDecimal(sheet.Cells[row, 16].Value.ToString().Replace(".", ","));
+                    turn.crAmountNat = Convert.ToDecimal(sheet.Cells[row, 16].Value.ToString().Replace(".", ","));
                     descBalanceObj.extractList.turns.Add(turn);
                     row++;
                 }
