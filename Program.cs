@@ -14,15 +14,17 @@ namespace Converter
     {
         static void Main(string[] args)
         {
-            XmlSerializer xmlSerializer = new XmlSerializer(typeof(List<descBalanceExtractListTurns>));
+            XmlSerializer xmlSerializer = new XmlSerializer(typeof(descBalance));
             //Console.Write("Введите путь к Excel файлу: ");
             //string path = Console.ReadLine();
             ExcelToObject obj = new ExcelToObject(@"D:\test.xlsx");
-            List<descBalanceExtractListTurns> list = obj.get_list();
-            using (FileStream fs = new FileStream("Turns.xml", FileMode.OpenOrCreate))
+            descBalance descBalance = obj.get_list();
+            using (FileStream fs = new FileStream("descBalance.xml", FileMode.OpenOrCreate))
             { 
-                xmlSerializer.Serialize(fs, list);
+                xmlSerializer.Serialize(fs, descBalance);
             }
+            Console.WriteLine("XML файл создан!");
+            Console.ReadKey();
         }
     }
 }
