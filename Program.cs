@@ -32,6 +32,7 @@ namespace Converter
                     xmlSerializer.Serialize(fs, descBalance);
                 }
                 Console.WriteLine("Файл XML создан успешно!");
+                Console.ReadKey();
             }
         }
     }
