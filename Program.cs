@@ -17,21 +17,28 @@ namespace Converter
         [STAThread]
         static void Main(string[] args)
         {
-            XmlSerializer xmlSerializer = new XmlSerializer(typeof(descBalance));
-            string path = "";
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            if (openFileDialog.ShowDialog() == DialogResult.Cancel)
-                return;
-            else
-            { 
-                path = openFileDialog.FileName;
-                ExcelToObject obj = new ExcelToObject(path);
-                descBalance descBalance = obj.get_list();
-                using (FileStream fs = new FileStream("descBalance.xml", FileMode.OpenOrCreate))
+            try
+            {
+                XmlSerializer xmlSerializer = new XmlSerializer(typeof(descBalance));
+                string path = "";
+                OpenFileDialog openFileDialog = new OpenFileDialog();
+                if (openFileDialog.ShowDialog() == DialogResult.Cancel)
+                    return;
+                else
                 {
-                    xmlSerializer.Serialize(fs, descBalance);
+                    path = openFileDialog.FileName;
+                    ExcelToObject obj = new ExcelToObject(path);
+                    descBalance descBalance = obj.get_list();
+                    using (FileStream fs = new FileStream("descBalance.xml", FileMode.OpenOrCreate))
+                    {
+                        xmlSerializer.Serialize(fs, descBalance);
+                    }
+                    MessageBox.Show("Файл XML успешно создан!", "XML Converter", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                MessageBox.Show("Файл XML успешно создан!", "XML Converter", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch(Exception ex) 
+            {
+                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

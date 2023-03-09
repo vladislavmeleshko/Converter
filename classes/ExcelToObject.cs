@@ -5,6 +5,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using Excel = Microsoft.Office.Interop.Excel;
 
 namespace Converter.classes
@@ -23,7 +24,7 @@ namespace Converter.classes
 
             try
             {
-                Application ex = new Application();
+                Excel.Application ex = new Excel.Application();
                 ex.Workbooks.Open(path_to_file,
                                     Type.Missing, Type.Missing, Type.Missing, Type.Missing,
                                     Type.Missing, Type.Missing, Type.Missing, Type.Missing,
@@ -74,8 +75,8 @@ namespace Converter.classes
             catch(Exception ex)
             {
                 if (ex.HResult == -2146827284)
-                    Console.WriteLine("Файл с таким именем не найден!");
-                else Console.WriteLine(ex.Message);
+                    MessageBox.Show("Файл с таким именем не найден!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return null;
             }
         }
