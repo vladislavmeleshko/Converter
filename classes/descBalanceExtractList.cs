@@ -68,7 +68,7 @@ namespace Converter.classes
 
         private byte isErrorField;
 
-        private uint unpField;
+        private string unpField;
 
         private string clientNameField;
 
@@ -443,7 +443,7 @@ namespace Converter.classes
         }
 
         /// <remarks/>
-        public uint unp
+        public string unp
         {
             get
             {

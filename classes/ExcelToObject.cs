@@ -37,6 +37,7 @@ namespace Converter.classes
                 descBalanceObj.dateTo = Convert.ToString(sheet.Cells[3, 4].Value.ToString().Split(' ')[3]);
 
                 descBalanceObj.extractList = new descBalanceExtractList();
+                descBalanceObj.extractList.unp = Convert.ToString(sheet.Cells[2, 4].Value);
                 descBalanceObj.extractList.dateTime = Convert.ToDateTime(sheet.Cells[4, 4].Value.ToString().Replace(",", " ").Split(' ')[0] + " " + sheet.Cells[4, 4].Value.ToString().Split(' ')[1].Replace(".", ":"));
                 descBalanceObj.extractList.openingBalance = Convert.ToDecimal(sheet.Cells[6, 4].Value.ToString().Replace("BYN", "").Replace(" ", "").Replace(".", ","));
                 descBalanceObj.extractList.openingBalanceNat = Convert.ToDecimal(sheet.Cells[6, 4].Value.ToString().Replace("BYN", "").Replace(" ", "").Replace(".", ","));
