@@ -57,7 +57,6 @@ namespace Converter.classes
                     turn.docDate = Convert.ToDateTime(sheet.Cells[row, 1].Value);
                     turn.docN = Convert.ToString(sheet.Cells[row, 2].Value);
                     turn.corrName = Convert.ToString(sheet.Cells[row, 7].Value);
-                    turn.docId = Convert.ToString(sheet.Cells[row, 8].Value);
                     turn.unp = Convert.ToString(sheet.Cells[row, 8].Value);
                     turn.corrAccount = Convert.ToString(sheet.Cells[row, 9].Value);
                     turn.corrBankCode = Convert.ToString(sheet.Cells[row, 10].Value);
