@@ -29,7 +29,7 @@ namespace Converter
                     path = openFileDialog.FileName;
                     ExcelToObject obj = new ExcelToObject(path);
                     descBalance descBalance = obj.get_list();
-                    using (FileStream fs = new FileStream("descBalance.xml", FileMode.OpenOrCreate))
+                    using (FileStream fs = new FileStream(openFileDialog.SafeFileName + ".xml", FileMode.OpenOrCreate))
                     {
                         xmlSerializer.Serialize(fs, descBalance);
                     }
