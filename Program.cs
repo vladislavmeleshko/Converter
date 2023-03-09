@@ -22,12 +22,16 @@ namespace Converter
             OpenFileDialog openFileDialog = new OpenFileDialog();
             if (openFileDialog.ShowDialog() == DialogResult.Cancel)
                 return;
-            else path = openFileDialog.FileName;
-            ExcelToObject obj = new ExcelToObject(path);
-            descBalance descBalance = obj.get_list();
-            using (FileStream fs = new FileStream("descBalance.xml", FileMode.OpenOrCreate))
+            else
             { 
-                xmlSerializer.Serialize(fs, descBalance);
+                path = openFileDialog.FileName;
+                ExcelToObject obj = new ExcelToObject(path);
+                descBalance descBalance = obj.get_list();
+                using (FileStream fs = new FileStream("descBalance.xml", FileMode.OpenOrCreate))
+                {
+                    xmlSerializer.Serialize(fs, descBalance);
+                }
+                Console.WriteLine("Файл XML создан успешно!");
             }
         }
     }
