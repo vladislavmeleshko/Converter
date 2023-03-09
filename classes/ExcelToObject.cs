@@ -23,14 +23,14 @@ namespace Converter.classes
 
             try
             {
-                Excel.Application ex = new Excel.Application();
+                Application ex = new Application();
                 ex.Workbooks.Open(path_to_file,
                                     Type.Missing, Type.Missing, Type.Missing, Type.Missing,
                                     Type.Missing, Type.Missing, Type.Missing, Type.Missing,
                                     Type.Missing, Type.Missing, Type.Missing, Type.Missing,
                                     Type.Missing, Type.Missing);
                 ex.DisplayAlerts = false;
-                Excel.Worksheet sheet = (Excel.Worksheet)ex.Worksheets.get_Item(1);
+                Worksheet sheet = (Worksheet)ex.Worksheets.get_Item(1);
 
                 descBalanceObj.accTitle = Convert.ToString(sheet.Cells[1, 1].Value);
                 descBalanceObj.dateFrom = Convert.ToString(sheet.Cells[3, 4].Value.ToString().Split(' ')[1]);
