@@ -31,8 +31,7 @@ namespace Converter
                 {
                     xmlSerializer.Serialize(fs, descBalance);
                 }
-                Console.WriteLine("Файл XML создан успешно!");
-                Console.ReadKey();
+                MessageBox.Show("Файл XML успешно создан!", "XML Converter", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
     }
