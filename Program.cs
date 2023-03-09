@@ -7,17 +7,22 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using System.Xml.Serialization;
 
 namespace Converter
 {
     internal class Program
     {
+        [STAThread]
         static void Main(string[] args)
         {
             XmlSerializer xmlSerializer = new XmlSerializer(typeof(descBalance));
-            Console.Write("Введите путь к Excel файлу: ");
-            string path = Console.ReadLine();
+            string path = "";
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            if (openFileDialog.ShowDialog() == DialogResult.Cancel)
+                return;
+            else path = openFileDialog.FileName;
             ExcelToObject obj = new ExcelToObject(path);
             descBalance descBalance = obj.get_list();
             using (FileStream fs = new FileStream("descBalance.xml", FileMode.OpenOrCreate))
