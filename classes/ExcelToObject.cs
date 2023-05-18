@@ -33,7 +33,7 @@ namespace Converter.classes
                 ex.DisplayAlerts = false;
                 Worksheet sheet = (Worksheet)ex.Worksheets.get_Item(1);
 
-                descBalanceObj.accTitle = Convert.ToString(sheet.Cells[1, 1].Value);
+                /*descBalanceObj.accTitle = Convert.ToString(sheet.Cells[1, 1].Value);
                 descBalanceObj.dateFrom = Convert.ToString(sheet.Cells[3, 4].Value.ToString().Split(' ')[1]);
                 descBalanceObj.dateTo = Convert.ToString(sheet.Cells[3, 4].Value.ToString().Split(' ')[3]);
 
@@ -67,7 +67,44 @@ namespace Converter.classes
                     turn.crAmountNat = Convert.ToDecimal(sheet.Cells[row, 16].Value.ToString().Replace(".", ","));
                     descBalanceObj.extractList.turns.Add(turn);
                     row++;
+                }*/
+
+                descBalanceObj.accTitle = Convert.ToString(sheet.Cells[1, 1].Value);
+                descBalanceObj.dateFrom = Convert.ToString(sheet.Cells[6, 4].Value.ToString().Split(' ')[1]);
+                descBalanceObj.dateTo = Convert.ToString(sheet.Cells[6, 4].Value.ToString().Split(' ')[3]);
+
+                descBalanceObj.extractList = new descBalanceExtractList();
+                descBalanceObj.extractList.unp = Convert.ToString(sheet.Cells[5, 4].Value);
+                descBalanceObj.extractList.dateTime = Convert.ToDateTime(sheet.Cells[7, 4].Value.ToString().Replace(",", " ").Split(' ')[0] + " " + sheet.Cells[7, 4].Value.ToString().Split(' ')[1].Replace(".", ":"));
+                descBalanceObj.extractList.openingBalance = Convert.ToDecimal(sheet.Cells[9, 4].Value.ToString().Replace("BYN", "").Replace(" ", "").Replace(".", ","));
+                descBalanceObj.extractList.openingBalanceNat = Convert.ToDecimal(sheet.Cells[9, 4].Value.ToString().Replace("BYN", "").Replace(" ", "").Replace(".", ","));
+                descBalanceObj.extractList.tDbAmount = Convert.ToDecimal(sheet.Cells[10, 4].Value.ToString().Replace("BYN", "").Replace(" ", "").Replace(".", ","));
+                descBalanceObj.extractList.tDbAmountNat = Convert.ToDecimal(sheet.Cells[10, 4].Value.ToString().Replace("BYN", "").Replace(" ", "").Replace(".", ","));
+                descBalanceObj.extractList.tCrAmount = Convert.ToDecimal(sheet.Cells[11, 4].Value.ToString().Replace("BYN", "").Replace(" ", "").Replace(".", ","));
+                descBalanceObj.extractList.tCrAmountNat = Convert.ToDecimal(sheet.Cells[11, 4].Value.ToString().Replace("BYN", "").Replace(" ", "").Replace(".", ","));
+                descBalanceObj.extractList.closingBalance = Convert.ToDecimal(sheet.Cells[12, 4].Value.ToString().Replace("BYN", "").Replace(" ", "").Replace(".", ","));
+                descBalanceObj.extractList.closingBalanceNat = Convert.ToDecimal(sheet.Cells[12, 4].Value.ToString().Replace("BYN", "").Replace(" ", "").Replace(".", ","));
+                descBalanceObj.extractList.openingBalanceDate = Convert.ToDateTime(sheet.Cells[6, 4].Value.ToString().Split(' ')[1]);
+                descBalanceObj.extractList.closingBalanceDate = Convert.ToDateTime(sheet.Cells[6, 4].Value.ToString().Split(' ')[3]);
+
+                int row = 15;
+                descBalanceObj.extractList.turns = new List<descBalanceExtractListTurns>();
+                while (sheet.Cells[row, 1].value != null)
+                {
+                    descBalanceExtractListTurns turn = new descBalanceExtractListTurns();
+                    turn.docDate = Convert.ToDateTime(sheet.Cells[row, 1].Value);
+                    turn.docN = Convert.ToString(sheet.Cells[row, 2].Value);
+                    turn.corrName = Convert.ToString(sheet.Cells[row, 4].Value);
+                    turn.unp = Convert.ToString(sheet.Cells[row, 5].Value);
+                    turn.corrAccount = Convert.ToString(sheet.Cells[row, 6].Value);
+                    turn.corrBankCode = Convert.ToString(sheet.Cells[row, 7].Value);
+                    turn.naznText = Convert.ToString(sheet.Cells[row, 8].Value);
+                    turn.crAmount = Convert.ToDecimal(sheet.Cells[row, 13].Value.ToString().Replace(".", ","));
+                    turn.crAmountNat = Convert.ToDecimal(sheet.Cells[row, 13].Value.ToString().Replace(".", ","));
+                    descBalanceObj.extractList.turns.Add(turn);
+                    row++;
                 }
+
                 ex.ActiveWorkbook.Close(false);
                 ex.Quit();
                 return descBalanceObj;
